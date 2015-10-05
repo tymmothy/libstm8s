@@ -2,13 +2,13 @@
  * @file:    stm8s.h
  * @purpose: Header File for STM8S CPUs
  * @version: V1.0
- * @author:  Tymm Twillman
- * @date:    1. November 2014
+ * @author:  Tymm Zerr
+ * @date:    1. September 2015
  ******************************************************************************
  * @section License License
  * Licensed under a Simplified BSD License:
  *
- * Copyright (c) 2012, Timothy Twillman
+ * Copyright (c) 2015, Tymm Zerr
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -34,7 +34,7 @@
  *
  * The views and conclusions contained in the software and documentation are
  * those of the authors and should not be interpreted as representing official
- * policies, either expressed or implied, of Timothy Twillman.
+ * policies, either expressed or implied, of Tymm Zerr.
  *****************************************************************************/
 
 #ifndef STM8S_H_
