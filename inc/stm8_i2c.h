@@ -199,53 +199,110 @@ static inline int i2c_pos_is_enabled(const I2C_TypeDef *i2c)
     return (i2c->CR2 & I2C_CR2_POS) ? 1:0;
 }
 
+/**
+ * @brief Generate I2C ACKs after bytes are received
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ */
 static inline void i2c_enable_ack(I2C_TypeDef *i2c)
 {
     i2c->CR2 |= I2C_CR2_ACK;
 }
 
+/**
+ * @brief Stop generating I2C ACKs after bytes are received
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ */
 static inline void i2c_disable_ack(I2C_TypeDef *i2c)
 {
     i2c->CR2 &= ~I2C_CR2_ACK;
 }
 
+/**
+ * @brief Test whether I2C ACKs will be returned after bytes are received
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ *
+ * @return 1 if ACKs will be returned, 0 if not
+ */
 static inline int i2c_ack_is_enabled(const I2C_TypeDef *i2c)
 {
     return (i2c->CR2 & I2C_CR2_ACK) ? 1:0;
 }
 
+/**
+ * @brief Generate an I2C STOP condition (or release SDA/SCL in slave mode)
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ *
+ * @note Active after current byte / START has completed
+ */
 static inline void i2c_enable_stop(I2C_TypeDef *i2c)
 {
     i2c->CR2 |= I2C_CR2_STOP;
 }
 
+/**
+ * @brief Stop generating I2C STOP (or stop releasing SDA/SCL in slave mode)
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ */
 static inline void i2c_disable_stop(I2C_TypeDef *i2c)
 {
     i2c->CR2 &= ~I2C_CR2_STOP;
 }
 
+/**
+ * @brief Test whether I2C STOP condition generation is configured
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ *
+ * @return 1 if STOP generation is enabled, 0 if not
+ */
 static inline int i2c_stop_is_enabled(const I2C_TypeDef *i2c)
 {
     return (i2c->CR2 & I2C_CR2_STOP) ? 1:0;
 }
 
+/**
+ * @brief Generate an I2C START condition
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ */
 static inline void i2c_enable_start(I2C_TypeDef *i2c)
 {
     i2c->CR2 |= I2C_CR2_START;
 }
 
+/**
+ * @brief Stop generating I2C START conditions
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ */
 static inline void i2c_disable_start(I2C_TypeDef *i2c)
 {
     i2c->CR2 &= ~I2C_CR2_START;
 }
 
+/**
+ * @brief Test whether I2C START generation is enabled
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ *
+ * @return 1 if START generation is enabled, 0 if not
+ */
 static inline int i2c_start_is_enabled(const I2C_TypeDef *i2c)
 {
     return (i2c->CR2 & I2C_CR2_START) ? 1:0;
 }
 
 /**
- * @brief Set the frequency, in MHz,
+ * @brief Set I2C SCL frequency
+ *
+ * @param i2c       Pointer to the I2C peripheral structure
+ * @param freq_mhz  I2C SCL frequency, in MHz
+ */
 static inline void i2c_set_frequency(I2C_TypeDef *i2c, uint8_t freq_mhz)
 {
     assert(freq_mhz > 0);
@@ -254,6 +311,13 @@ static inline void i2c_set_frequency(I2C_TypeDef *i2c, uint8_t freq_mhz)
     i2c->FREQ = freq_mhz;
 }
 
+/**
+ * @brief Get I2C SCL frequency
+ *
+ * @param i2c       Pointer to the I2C peripheral structure
+ *
+ * @return  I2C SCL frequency, in MHz
+ */
 static inline uint8_t i2c_get_frequency(const I2C_TypeDef *i2c)
 {
     return i2c->FREQ;
@@ -299,6 +363,13 @@ static inline void i2c_set_addr10(I2C_TypeDef *i2c, uint16_t addr)
     i2c->OARH = ((addr >> 7) & 0x03) | I2C_OARH_ADDMODE | I2C_OARH_ADDCONF;
 }
 
+/**
+ * @brief Set the address the I2C peripheral will answer to as 10-bit value
+ *
+ * @param i2c  Pointer to the I2C peripheral structure
+ *
+ * @return     Address the I2C peripheral will answer to as a 10-bit value
+ */
 static inline uint16_t i2c_get_addr10(const I2C_TypeDef *i2c)
 {
     return ((i2c->OARH & I2C_OARH_10BITADDR_B8_9_Mask) << 7) | (i2c->OARL);
