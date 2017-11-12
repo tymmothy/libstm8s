@@ -161,11 +161,11 @@ static inline int adc_external_trigger_is_enabled(ADC_TypeDef *adc)
 static inline uint16_t adc_read(ADC_TypeDef *adc)
 {
     uint16_t rdg;
-    
-    
+
+
     rdg = (adc->DRH) << 8;
     rdg |= adc->DRL;
-    
+
     return rdg;
 }
 
@@ -184,11 +184,11 @@ static inline void adc_disable_schmitt_triggers(ADC_TypeDef *adc, uint16_t mask)
 static inline uint16_t adc_enabled_schmitt_triggers(ADC_TypeDef *adc)
 {
     uint16_t trig;
-    
-    
+
+
     trig = (adc->TDRH) << 8;
     trig |= adc->TDRH;
-    
+
     return trig;
 }
 

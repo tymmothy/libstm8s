@@ -67,7 +67,7 @@ extern "C" {
 static inline void beep_set_tone(Beep_TypeDef *beep, uint8_t tone)
 {
     assert(tone <= BEEP_TONE_HIGH);
-    
+
     beep->CSR = (beep->CSR & ~BEEP_Select_Mask) | (tone << BEEP_Select_Shift);
 }
 
@@ -78,12 +78,12 @@ static inline void beep_set_tone(Beep_TypeDef *beep, uint8_t tone)
 static inline uint8_t beep_get_tone(Beep_TypeDef *beep)
 {
     uint8_t ret = (beep->CSR & BEEP_Select_Mask) >> BEEP_Select_Shift;
-    
-    
+
+
     if (ret > BEEP_TONE_HIGH) {
         ret = BEEP_TONE_HIGH;
     }
-    
+
     return ret;
 }
 
@@ -120,7 +120,7 @@ static inline void beep_set_prescaler(Beep_TypeDef *beep, uint8_t prescaler)
 {
     assert(pre >= 2);
     assert (pre <= 32);
-    
+
     pre -= 2;
     beep->CSR = (beep->CSR & ~BEEP_Divider_Mask) | (div & BEEP_Divider_Mask);
 }

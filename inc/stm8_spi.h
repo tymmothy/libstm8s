@@ -81,10 +81,10 @@ static inline void spi_configure(SPI_TypeDef *spi, uint8_t role)
 static inline void spi_set_mode(SPI_TypeDef *spi, uint8_t mode)
 {
     uint8_t val;
-    
-    
+
+
     assert (mode <= 3);
-    
+
     val = SPI->CR1 & ~(SPI_CR1_CPOL | SPI_CR1_CHA);
     val |= (mode & 0x02) ? SPI_CR1_CPOL : 0;
     val |= (mode & 0x01) ? SPI_CR1_CPHA : 0;
@@ -102,7 +102,7 @@ static inline int spi_get_mode(SPI_TypeDef *spi)
 
     mode = (SPI->CR1 & SPI_CR1_CPHA) ? 1:0;
     mode |= (SPI->CR1 & SPI_CR1_COL) ? 2:0;
-    
+
     return mode;
 }
 
