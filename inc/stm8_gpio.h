@@ -31,7 +31,8 @@ static inline uint8_t gpio_read_output(GPIO_TypeDef *gpio)
   * @param pins   Bitmask of pins whose values will be updated
   * @param values Bitmask of values to apply to the specified pins.
   */
-static inline void gpio_write_output_pins(GPIO_TypeDef *gpio, uint8_t pins, uint8_t values)
+static inline void gpio_write_output_pins(GPIO_TypeDef *gpio, uint8_t pins,
+                                          uint8_t values)
 {
     gpio->ODR = (gpio->ODR & pins) | values;
 }
@@ -65,7 +66,8 @@ static inline uint8_t gpio_get_port_directions(GPIO_TypeDef *gpio)
     return gpio->DDR;
 }
 
-static inline void gpio_set_pins_directions(GPIO_TypeDef *gpio, uint8_t pins, uint8_t dirs)
+static inline void gpio_set_pins_directions(GPIO_TypeDef *gpio, uint8_t pins,
+                                            uint8_t dirs)
 {
     gpio->DDR = (gpio->DDR & ~pins) | dirs;
 }
@@ -75,7 +77,8 @@ static inline uint8_t gpio_get_pins_directions(GPIO_TypeDef *gpio, uint8_t pins)
     return gpio->DDR & pins;
 }
 
-static inline void gpio_configure(GPIO_TypeDef *gpio, uint8_t pins, uint8_t mode)
+static inline void gpio_configure(GPIO_TypeDef *gpio, uint8_t pins,
+                                  uint8_t mode)
 {
     if (mode & GPIO_MODE_OUT) {
         gpio->DDR |= pins;
@@ -98,7 +101,8 @@ static inline void gpio_configure(GPIO_TypeDef *gpio, uint8_t pins, uint8_t mode
     }
 }
 
-static inline uint8_t gpio_get_pin_configuration(GPIO_TypeDef *gpio, uint8_t pin)
+static inline uint8_t gpio_get_pin_configuration(GPIO_TypeDef *gpio,
+                                                 uint8_t pin)
 {
     uint8_t mode = 0;
 

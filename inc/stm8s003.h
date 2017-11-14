@@ -136,13 +136,8 @@ typedef enum {
 #define EXTI            ((EXTI_TypeDef *)EXTI_BASE)
 #define RST             ((RST_TypeDef *)RST_BASE)
 #define CLK             ((CLK_TypeDef *)CLK_BASE)
-
-#if 0
-/* Not done yet */
 #define WWDG            ((WWDG_TypeDef *)WWDG_BASE)
 #define IWDG            ((IWDG_TypeDef *)IWDG_BASE)
-#endif
-
 #define AWU             ((AWU_TypeDef *)AWU_BASE)
 #define BEEP            ((BEEP_TypeDef *)BEEP_BASE)
 #define SPI1            ((SPI_TypeDef *)SPI_BASE)
@@ -150,22 +145,11 @@ typedef enum {
 #define UART1           ((UART_TypeDef *)UART_BASE)
 #define TIM1            ((TIM1_TypeDef *)TIM1_BASE)
 #define TIM2            ((TIM2_TypeDef *)TIM2_BASE)
-
-#if 0
 #define TIM4            ((TIM4_TypeDef *)TIM4_BASE)
-#endif
-
 #define ADC1            ((ADC1_TypeDef *)ADC1_BASE)
 #define CPUREG          ((CPUREG_TypeDef *)CPUREG_BASE)
 #define GCR             ((GCR_TypeDef *)GCR_BASE)
 #define ITC             ((ITC_TypeDef *)ITC_BASE)
-
-#if 0
-/* Not done yet */
-
-#define SWIM            ((SWIM_TypeDef *)SWIM_BASE)
-#define DM              ((DM_TypeDef *)DM_BASE)
-#endif
 
 /**
   * @}

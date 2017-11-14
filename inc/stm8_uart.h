@@ -244,7 +244,8 @@ static inline int uart_break_is_sending(UART_TypeDef *uart)
     return (uart->CR2 & UART1_CR2_SBK) ? 1:0;
 }
 
-static inline void uart_set_smartcard_guard_time(UART_TypeDef *uart, int baudclocks)
+static inline void uart_set_smartcard_guard_time(UART_TypeDef *uart,
+                                                 int baudclocks)
 {
     uart->GTR = baudclocks;
 }

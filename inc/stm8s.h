@@ -267,6 +267,36 @@ typedef struct {
     __IO uint8_t CCR3L;         /*!< 0x14/0x16: Capt / Compare Reg. 3 Low    */
 } TIM2_TypeDef;
 
+/** @brief 8-bit Timer 4 Register Layout
+  */
+typedef struct {
+    __IO uint8_t CR1;           /*!< 0x00: Control Register 1                */
+#ifdef TIM4_TYPE2
+    uint8_t Reserved_0x01;
+    uint8_t Reserved_0x02;
+#endif
+    __IO uint8_t IER;           /*!< 0x01/0x03: Interrupt Enable Register    */
+    __IO uint8_t SR;            /*!< 0x02/0x04: Status Register              */
+    __IO uint8_t EGR;           /*!< 0x03/0x05: Event Generation Register    */
+    __IO uint8_t CNTR;          /*!< 0x04/0x06: Counter Register             */
+    __IO uint8_t PSCR;          /*!< 0x05/0x07: Prescaler Register           */
+    __IO uint8_t ARR ;          /*!< 0x06/0x08: Auto Reload Register         */
+} TIM4_TypeDef;
+
+/** @brief 8-bit Timer 6 Register Layout
+  */
+typedef struct {
+    __IO uint8_t CR1;           /*!< 0x00: Control Register 1                */
+    __IO uint8_t CR2;           /*!< 0x01: Control Register 2                */
+    __IO uint8_t SMCR;          /*!< 0x02: Slave Mode Control Register       */
+    __IO uint8_t IER;           /*!< 0x03: Interrupt Enable Register         */
+    __IO uint8_t SR;            /*!< 0x04: Status Register                   */
+    __IO uint8_t EGR;           /*!< 0x05: Event Generation Register         */
+    __IO uint8_t CNTR;          /*!< 0x06: Counter Register                  */
+    __IO uint8_t PSCR;          /*!< 0x07: Prescaler Register                */
+    __IO uint8_t ARR ;          /*!< 0x08: Auto Reload Register              */
+} TIM4_TypeDef;
+
 /** @brief ADC Channel Buffer Register Layout
   */
 typedef struct {
@@ -345,6 +375,13 @@ typedef struct {
     __IO uint8_t RR;            /*!< 0x02: Reload Register                   */
 } IWDG_TypeDef;
 
+/** @brief WWDG Register Layout
+  */
+typedef struct {
+    __IO uint8_t CR;            /*!< 0x00: Control Register                  */
+    __IO uint8_t WR;            /*!< 0x01: Window Register                   */
+} WWDG_TypeDef;
+
 /** @brief CPU Register Layout
   */
 typedef struct {
@@ -408,34 +445,34 @@ typedef struct {
 #define GPIO_IDR_0              (1 << 0)  /*!< GPIO Input Data Bit 0 */
 
 /* GPIO Data Direction Register Bit Definitions */
-#define GPIO_DDR_7              (1 << 7)  /*!< GPIO Data Direction for Bit 7 (0=in,1=out) */
-#define GPIO_DDR_6              (1 << 6)  /*!< GPIO Data Direction for Bit 6 (0=in,1=out) */
-#define GPIO_DDR_5              (1 << 5)  /*!< GPIO Data Direction for Bit 5 (0=in,1=out) */
-#define GPIO_DDR_4              (1 << 4)  /*!< GPIO Data Direction for Bit 4 (0=in,1=out) */
-#define GPIO_DDR_3              (1 << 3)  /*!< GPIO Data Direction for Bit 3 (0=in,1=out) */
-#define GPIO_DDR_2              (1 << 2)  /*!< GPIO Data Direction for Bit 2 (0=in,1=out) */
-#define GPIO_DDR_1              (1 << 1)  /*!< GPIO Data Direction for Bit 1 (0=in,1=out) */
-#define GPIO_DDR_0              (1 << 0)  /*!< GPIO Data Direction for Bit 0 (0=in,1=out) */
+#define GPIO_DDR_7              (1 << 7)  /*!< Data Dir / Bit 7 (0=in,1=out) */
+#define GPIO_DDR_6              (1 << 6)  /*!< Data Dir / Bit 6 (0=in,1=out) */
+#define GPIO_DDR_5              (1 << 5)  /*!< Data Dir / Bit 5 (0=in,1=out) */
+#define GPIO_DDR_4              (1 << 4)  /*!< Data Dir / Bit 4 (0=in,1=out) */
+#define GPIO_DDR_3              (1 << 3)  /*!< Data Dir / Bit 3 (0=in,1=out) */
+#define GPIO_DDR_2              (1 << 2)  /*!< Data Dir / Bit 2 (0=in,1=out) */
+#define GPIO_DDR_1              (1 << 1)  /*!< Data Dir / Bit 1 (0=in,1=out) */
+#define GPIO_DDR_0              (1 << 0)  /*!< Data Dir / Bit 0 (0=in,1=out) */
 
 /* GPIO Control Register 1 Bit Definitions */
-#define GPIO_CR1_C17            (1 << 7)  /*!< GPIO Pin Control 1 for Data Bit 7 */
-#define GPIO_CR1_C16            (1 << 6)  /*!< GPIO Pin Control 1 for Data Bit 6 */
-#define GPIO_CR1_C15            (1 << 5)  /*!< GPIO Pin Control 1 for Data Bit 5 */
-#define GPIO_CR1_C14            (1 << 4)  /*!< GPIO Pin Control 1 for Data Bit 4 */
-#define GPIO_CR1_C13            (1 << 3)  /*!< GPIO Pin Control 1 for Data Bit 3 */
-#define GPIO_CR1_C12            (1 << 2)  /*!< GPIO Pin Control 1 for Data Bit 2 */
-#define GPIO_CR1_C11            (1 << 1)  /*!< GPIO Pin Control 1 for Data Bit 1 */
-#define GPIO_CR1_C10            (1 << 0)  /*!< GPIO Pin Control 1 for Data Bit 0 */
+#define GPIO_CR1_C17            (1 << 7)  /*!< GPIO Pin Ctrl 1 / Data Bit 7 */
+#define GPIO_CR1_C16            (1 << 6)  /*!< GPIO Pin Ctrl 1 / Data Bit 6 */
+#define GPIO_CR1_C15            (1 << 5)  /*!< GPIO Pin Ctrl 1 / Data Bit 5 */
+#define GPIO_CR1_C14            (1 << 4)  /*!< GPIO Pin Ctrl 1 / Data Bit 4 */
+#define GPIO_CR1_C13            (1 << 3)  /*!< GPIO Pin Ctrl 1 / Data Bit 3 */
+#define GPIO_CR1_C12            (1 << 2)  /*!< GPIO Pin Ctrl 1 / Data Bit 2 */
+#define GPIO_CR1_C11            (1 << 1)  /*!< GPIO Pin Ctrl 1 / Data Bit 1 */
+#define GPIO_CR1_C10            (1 << 0)  /*!< GPIO Pin Ctrl 1 / Data Bit 0 */
 
 /* GPIO Control Register 2 Bit Definitions */
-#define GPIO_CR2_C27            (1 << 7)  /*!< GPIO Pin Control 2 for Data Bit 7 */
-#define GPIO_CR2_C26            (1 << 6)  /*!< GPIO Pin Control 2 for Data Bit 6 */
-#define GPIO_CR2_C25            (1 << 5)  /*!< GPIO Pin Control 2 for Data Bit 5 */
-#define GPIO_CR2_C24            (1 << 4)  /*!< GPIO Pin Control 2 for Data Bit 4 */
-#define GPIO_CR2_C23            (1 << 3)  /*!< GPIO Pin Control 2 for Data Bit 3 */
-#define GPIO_CR2_C22            (1 << 2)  /*!< GPIO Pin Control 2 for Data Bit 2 */
-#define GPIO_CR2_C21            (1 << 1)  /*!< GPIO Pin Control 2 for Data Bit 1 */
-#define GPIO_CR2_C20            (1 << 0)  /*!< GPIO Pin Control 2 for Data Bit 0 */
+#define GPIO_CR2_C27            (1 << 7)  /*!< GPIO Pin Ctrl 2 / Data Bit 7 */
+#define GPIO_CR2_C26            (1 << 6)  /*!< GPIO Pin Ctrl 2 / Data Bit 6 */
+#define GPIO_CR2_C25            (1 << 5)  /*!< GPIO Pin Ctrl 2 / Data Bit 5 */
+#define GPIO_CR2_C24            (1 << 4)  /*!< GPIO Pin Ctrl 2 / Data Bit 4 */
+#define GPIO_CR2_C23            (1 << 3)  /*!< GPIO Pin Ctrl 2 / Data Bit 3 */
+#define GPIO_CR2_C22            (1 << 2)  /*!< GPIO Pin Ctrl 2 / Data Bit 2 */
+#define GPIO_CR2_C21            (1 << 1)  /*!< GPIO Pin Ctrl 2 / Data Bit 1 */
+#define GPIO_CR2_C20            (1 << 0)  /*!< GPIO Pin Ctrl 2 / Data Bit 0 */
 
 /**
   * @}
@@ -446,33 +483,33 @@ typedef struct {
   */
 
 #define FLASH_CR1_HALT          (1 << 3)  /*!< Power-Down in Halt Mode Enable */
-#define FLASH_CR1_AHALT         (1 << 2)  /*!< Power-Down in Active Halt Mode Enable */
+#define FLASH_CR1_AHALT         (1 << 2)  /*!< Power-Down in Act Halt Mode En */
 #define FLASH_CR1_IE            (1 << 1)  /*!< FLASH Interrupt Enable */
-#define FLASH_CR1_FIX           (1 << 0)  /*!< Fixed Byte Programming Time Enable */
+#define FLASH_CR1_FIX           (1 << 0)  /*!< Fixed Byte Prog Time Enable */
 
 #define FLASH_CR2_OPT           (1 << 7)  /*!< Write to Option Bytes Enable */
 #define FLASH_CR2_WPRG          (1 << 6)  /*!< Word Programming Enable */
 #define FLASH_CR2_ERASE         (1 << 5)  /*!< Block Erasing Enable */
 #define FLASH_CR2_FPRG          (1 << 4)  /*!< Fast Block Programming Enable */
-#define FLASH_CR2_PRG           (1 << 0)  /*!< Standard Block Programming Enable */
+#define FLASH_CR2_PRG           (1 << 0)  /*!< Standard Block Prog Enable */
 
 #define FLASH_NCR2_OPT          (1 << 7)  /*!< Write to Option Bytes Disable */
 #define FLASH_NCR2_WPRG         (1 << 6)  /*!< Word Programming Disable */
 #define FLASH_NCR2_ERASE        (1 << 5)  /*!< Block Erasing Disable */
 #define FLASH_NCR2_FPRG         (1 << 4)  /*!< Fast Block Programming Disable */
-#define FLASH_NCR2_PRG          (1 << 0)  /*!< Standard Block Programming Disable */
+#define FLASH_NCR2_PRG          (1 << 0)  /*!< Standard Block Prog Disable */
 
 #define FLASH_IAPSR_HVOFF       (1 << 6)  /*!< End of High Voltage Flag */
 #define FLASH_IAPSR_DUL         (1 << 3)  /*!< Data EEPROM Unlocked Flag */
 #define FLASH_IAPSR_EOP         (1 << 2)  /*!< End of Programming Flag */
-#define FLASH_IAPSR_PUL         (1 << 1)  /*!< Flash Program Memory Unlocked Flag */
-#define FLASH_IAPSR_WR_PG_DIS   (1 << 0)  /*!< Write Attempted to Protected Page Flag */
+#define FLASH_IAPSR_PUL         (1 << 1)  /*!< Flash Pgm Memory Unlocked Flag */
+#define FLASH_IAPSR_WR_PG_DIS   (1 << 0)  /*!< Write Attempt / Prot Page Flag */
 
 /**
   * @}
   */
 
-/** @defgroup EXTI_Register_Bit_Definitions External Interrupt Register Bit Definitions
+/** @defgroup EXTI_Register_Bit_Definitions Ext Int Register Bit Definitions
   * @{
   */
 
@@ -499,9 +536,10 @@ typedef struct {
 #define EXTI_CR1_Mask_Port_A        (0x03)
 
 /* EXTI CR2 Bit Definitions */
-#define EXTI_CR2_TLIS               (1 << 2)  /*!< Top Level Interrupt Sensitivity (0=falling edge, 1=rising edge) */
-#define EXTI_CR2_PEIS1              (1 << 1)  /*!< Port E Interrupt Sense Bit 1 */
-#define EXTI_CR2_PEIS0              (1 << 0)  /*!< Port E Interrupt Sense Bit 0 */
+#define EXTI_CR2_TLIS               (1 << 2)  /*!< Top Lvl Int Sens
+                                                   (0=fall edge, 1=rise edge) */
+#define EXTI_CR2_PEIS1              (1 << 1)  /*!< Port E Int Sense Bit 1 */
+#define EXTI_CR2_PEIS0              (1 << 0)  /*!< Port E Int Sense Bit 0 */
 
 #define EXTI_CR2_Shift_Port_E       (0)
 #define EXTI_CR2_Mask_Port_E        (0x03)
@@ -523,14 +561,14 @@ typedef struct {
 #define RST_SR_EMCF             (1 << 4)  /*!< EMC Reset Flag */
 #define RST_SR_SWIMF            (1 << 3)  /*!< SWIM Reset Flag */
 #define RST_SR_ILLOPF           (1 << 2)  /*!< Illegal Operation Reset Flag */
-#define RST_SR_IWDGF            (1 << 1)  /*!< Independent Watchdog Reset Flag */
+#define RST_SR_IWDGF            (1 << 1)  /*!< Independent Wdg Reset Flag */
 #define RST_SR_WWDGF            (1 << 0)  /*!< Windowed Watchdog Reset Flag */
 
 /**
   * @}
   */
 
-/** @defgroup CLK_Register_Bit_Definitions Clock Control Register Bit Definitions
+/** @defgroup CLK_Register_Bit_Definitions Clock Ctrl Register Bit Definitions
   * @{
   */
 
@@ -566,19 +604,19 @@ typedef struct {
 #define CLK_CKDIVR_CPUDIV_Mask  (0x07)
 
 /* Clock Control Security System Register Bits */
-#define CLK_CSSR_CSSD           (1 << 3)  /*!< Clock Security System Disturbance Detected Flag */
-#define CLK_CSSR_CSSDIE         (1 << 3)  /*!< Clock Security System Disturbance Interrupt Enable */
+#define CLK_CSSR_CSSD           (1 << 3)  /*!< Clock Sec Disturbance Det Flag */
+#define CLK_CSSR_CSSDIE         (1 << 3)  /*!< Clock Sec Disturbance Int En */
 #define CLK_CSSR_AUX            (1 << 3)  /*!< Auxiliary Oscillator Connected */
 #define CLK_CSSR_CSSEN          (1 << 3)  /*!< CSS Enable */
 
 /* Clock Control Configurable Clock Output Register Bits */
-#define CLK_CCOR_CCOBSY         (1 << 6)  /*!< Configurable Clock Output Operating Flag */
-#define CLK_CCOR_CCORDY         (1 << 5)  /*!< Configurable Clock Output Ready */
-#define CLK_CCOR_CCOSEL3        (1 << 4)  /*!< Configurable Clock Output Select Bit 3 */
-#define CLK_CCOR_CCOSEL2        (1 << 3)  /*!< Configurable Clock Output Select Bit 2 */
-#define CLK_CCOR_CCOSEL1        (1 << 2)  /*!< Configurable Clock Output Select Bit 1 */
-#define CLK_CCOR_CCOSEL0        (1 << 1)  /*!< Configurable Clock Output Select Bit 0 */
-#define CLK_CCOR_CCOEN          (1 << 0)  /*!< Configurable Clock Output Enable */
+#define CLK_CCOR_CCOBSY         (1 << 6)  /*!< Config Clk Output Operating Fl */
+#define CLK_CCOR_CCORDY         (1 << 5)  /*!< Config Clk Output Ready */
+#define CLK_CCOR_CCOSEL3        (1 << 4)  /*!< Config Clk Output Select Bit 3 */
+#define CLK_CCOR_CCOSEL2        (1 << 3)  /*!< Config Clk Output Select Bit 2 */
+#define CLK_CCOR_CCOSEL1        (1 << 2)  /*!< Config Clk Output Select Bit 1 */
+#define CLK_CCOR_CCOSEL0        (1 << 1)  /*!< Config Clk Output Select Bit 0 */
+#define CLK_CCOR_CCOEN          (1 << 0)  /*!< Config Clk Output Enable */
 
 #define CLK_CCOR_CCOSEL_Shift   (1)
 #define CLK_CCOR_CCOSEL_Mask    (0x0f << 1)
@@ -610,10 +648,10 @@ typedef struct {
 #define AWU_CSR_MSR             (1 << 0)  /*!< Measurement Enable */
 
 /* Auto-Wakeup Timebase Selection Register Bit Definitions */
-#define AWU_TBR_AWUTB3          (1 << 3)  /*!< Auto-Wakeup Timebase Select Bit 3 */
-#define AWU_TBR_AWUTB2          (1 << 2)  /*!< Auto-Wakeup Timebase Select Bit 2 */
-#define AWU_TBR_AWUTB1          (1 << 1)  /*!< Auto-Wakeup Timebase Select Bit 1 */
-#define AWU_TBR_AWUTB0          (1 << 0)  /*!< Auto-Wakeup Timebase Select Bit 0 */
+#define AWU_TBR_AWUTB3          (1 << 3)  /*!< Auto-Wkup Timebase Sel Bit 3 */
+#define AWU_TBR_AWUTB2          (1 << 2)  /*!< Auto-Wkup Timebase Sel Bit 2 */
+#define AWU_TBR_AWUTB1          (1 << 1)  /*!< Auto-Wkup Timebase Sel Bit 1 */
+#define AWU_TBR_AWUTB0          (1 << 0)  /*!< Auto-Wkup Timebase Sel Bit 0 */
 
 #define AWU_TBR_Timebase_Shift  (0)
 #define AWU_TBR_Timebase_Mask   (0x0f)
@@ -653,14 +691,14 @@ typedef struct {
   */
 
 /* CR1 Bit Definitions */
-#define SPI_CR1_LSBFIRST        (1 << 7)  /*!< Frame Format (0=MSB First, 1=LSB First) */
+#define SPI_CR1_LSBFIRST        (1 << 7)  /*!< Frm Fmt (0=MSB 1st, 1=LSB 1st) */
 #define SPI_CR1_SPE             (1 << 6)  /*!< SPI Peripheral Enable */
 #define SPI_CR1_BR2             (1 << 5)  /*!< Baud Rate Control Bit 2 */
 #define SPI_CR1_BR1             (1 << 4)  /*!< Baud Rate Control Bit 1 */
 #define SPI_CR1_BR0             (1 << 3)  /*!< Baud Rate Control Bit 0 */
-#define SPI_CR1_MSTR            (1 << 2)  /*!< Master Selection (0=Slave, 1=Master) */
-#define SPI_CR1_CPOL            (1 << 1)  /*!< Clock Polarity (0=SCK idle 0, 1=SCK idle 1) */
-#define SPI_CR1_CPHA            (1 << 0)  /*!< Clock Phase (0=capture on 1st clock, 1=capture on 2nd clock) */
+#define SPI_CR1_MSTR            (1 << 2)  /*!< Mstr Sel (0=Slave, 1=Master) */
+#define SPI_CR1_CPOL            (1 << 1)  /*!< Clk Pol (0=SCK idl 0, 1=idl 1) */
+#define SPI_CR1_CPHA            (1 << 0)  /*!< Clk Phs (0=cap 1st clk, 1=2nd) */
 
 /* Shift & Bitmask for SPI Baud setting in CR1
  * Baud rate = (fMaster/2^(n+1))
@@ -669,17 +707,25 @@ typedef struct {
 #define SPI_CR1_Baud_Mask       (0x07 << 3)
 
 /* CR2 Bit Definitions */
-#define SPI_CR2_BDM             (1 << 7)  /*!< Bidirectional Data Mode Enable (0=2 line unidir, 1=1 line bidir) */
-#define SPI_CR2_BDOE            (1 << 6)  /*!< I/O Enable in Bidirectional Mode (0=input mode, 1=output mode) */
-#define SPI_CR2_CRCEN           (1 << 5)  /*!< Hardware CRC Calculation Enable */
+#define SPI_CR2_BDM             (1 << 7)  /*!< Bidirectional Data Mode Enable
+                                               0 : 2 line unidir
+                                               1 : 1 line bidir */
+#define SPI_CR2_BDOE            (1 << 6)  /*!< I/O Enable in Bidirectional Mode
+                                               0 : input
+                                               1 : output */
+#define SPI_CR2_CRCEN           (1 << 5)  /*!< HW CRC Calculation Enable */
 #define SPI_CR2_CRCNEXT         (1 << 4)  /*!< Transmit CRC Next */
-#define SPI_CR2_RXONLY          (1 << 2)  /*!< Receive Only (0=Full Duplex, 1=Output Disabled) */
-#define SPI_CR2_SSM             (1 << 1)  /*!< Software Slave Management Enable */
-#define SPI_CR2_SSI             (1 << 0)  /*!< Software Slave Select for SSM Mode (0=Slave, 1=Master) */
+#define SPI_CR2_RXONLY          (1 << 2)  /*!< Rcv Only
+                                               0 : Full duplex
+                                               1 : Output disabled*/
+#define SPI_CR2_SSM             (1 << 1)  /*!< SW Slave Management Enable */
+#define SPI_CR2_SSI             (1 << 0)  /*!< SW Slave Sel/SSM Mode
+                                               0 : Slave
+                                               1 : Master */
 
 /* ICR Bit Definitions */
-#define SPI_ICR_TXIE            (1 << 7)  /*!< Tx Buffer Empty Interrupt Enable */
-#define SPI_ICR_RXIE            (1 << 6)  /*!< Rx Buffer Not Empty Interrupt Enable */
+#define SPI_ICR_TXIE            (1 << 7)  /*!< Tx Buffer Empty Int Enable */
+#define SPI_ICR_RXIE            (1 << 6)  /*!< Rx Buffer Not Empty Int Enable */
 #define SPI_ICR_ERRIE           (1 << 5)  /*!< Error Interrupt Enable */
 #define SPI_ICR_WKIE            (1 << 4)  /*!< Wakeup Interrupt Enable */
 
@@ -707,7 +753,7 @@ typedef struct {
 
 /* I2C CR2 Bit Definitions */
 #define I2C_CR2_SWRST           (1 << 7)  /*!< Software Reset */
-#define I2C_CR2_POS             (1 << 3)  /*!< ACK Position (0=current byte, 1=next byte) */
+#define I2C_CR2_POS             (1 << 3)  /*!< ACK Pos (0=curr B, 1=next B) */
 #define I2C_CR2_ACK             (1 << 2)  /*!< Acknowledge Enable */
 #define I2C_CR2_STOP            (1 << 1)  /*!< Stop Generation */
 #define I2C_CR2_START           (1 << 0)  /*!< Start Generation */
@@ -721,7 +767,7 @@ typedef struct {
 #define I2C_OARL_7BITADDR_Mask  (0xfe)
 
 /* I2C OARH bit definitions */
-#define I2C_OARH_ADDMODE        (1 << 7)  /*!< Addressing Mode (0=7bit, 1=10bit) */
+#define I2C_OARH_ADDMODE        (1 << 7)  /*!< Addr Mode (0=7bit, 1=10bit) */
 #define I2C_OARH_ADDCONF        (1 << 6)  /*!< Address Mode Configuration */
 #define I2C_OARH_ADD9           (1 << 2)  /*!< 10 bit address bit 9 */
 #define I2C_OARH_ADD8           (1 << 1)  /*!< 10 bit address bit 8 */
@@ -734,9 +780,9 @@ typedef struct {
 #define I2C_SR1_TXE             (1 << 7)  /*!< Data Register TX Empty */
 #define I2C_SR1_RXNE            (1 << 6)  /*!< Data Register RX Not Empty */
 #define I2C_SR1_STOPF           (1 << 4)  /*!< Stop Detected */
-#define I2C_SR1_ADD10           (1 << 3)  /*!< 10-bit Header Sent (master mode) */
+#define I2C_SR1_ADD10           (1 << 3)  /*!< 10-bit Header Sent (mstr mode) */
 #define I2C_SR1_BTF             (1 << 2)  /*!< Byte Transfer Finished */
-#define I2C_SR1_ADDR            (1 << 1)  /*!< Address Sent (mm) / Matched (sm) */
+#define I2C_SR1_ADDR            (1 << 1)  /*!< Addr Sent (mm) / Matched (sm) */
 #define I2C_SR1_SB              (1 << 0)  /*!< Start Bit Generated (mm) */
 
 /* I2C SR2 bit definitions */
@@ -747,10 +793,10 @@ typedef struct {
 #define I2C_SR2_BERR            (1 << 0)  /*!< Bus Error */
 
 /* I2C SR3 bit definitions */
-#define I2C_SR3_GENCALL         (1 << 4)  /*!< General Call Header Received (sm) */
+#define I2C_SR3_GENCALL         (1 << 4)  /*!< General Call Hdr Received (sm) */
 #define I2C_SR3_TRA             (1 << 2)  /*!< Transmitter / Receiver */
 #define I2C_SR3_BUSY            (1 << 1)  /*!< Busy Flag */
-#define I2C_SR3_MSL             (1 << 0)  /*!< Master / Slave Mode (0=slave, 1=master) */
+#define I2C_SR3_MSL             (1 << 0)  /*!< Mstr/Slv Mode (0=slv, 1=mstr) */
 
 /* I2C ITR bit definitions */
 #define I2C_ITR_ITBUFEN         (1 << 2)  /*!< Buffer Interrupt Enable */
@@ -762,8 +808,8 @@ typedef struct {
 #define I2C_CCRL_CLOCK_Mask     (0xff)
 
 /* I2C CCRH bit definitions */
-#define I2C_CCRH_FS             (1 << 7)  /*!< Master Mode Selection (0=std, 1=fast) */
-#define I2C_CCRH_DUTY           (1 << 6)  /*!< Fast Mode Duty Cycle l/h (0=2, 1=16/9) */
+#define I2C_CCRH_FS             (1 << 7)  /*!< Mstr Mode Sel (0=std, 1=fast) */
+#define I2C_CCRH_DUTY           (1 << 6)  /*!< Fast Md Duty l/h (0=2, 1=16/9) */
 
 #define I2C_CCRH_CLOCK_Shift    (0)
 #define I2C_CCRH_CLOCK_Mask     (0x0f)
@@ -795,9 +841,9 @@ typedef struct {
 #define UART_CR1_T8             (1 << 6)  /*!< Transmit Databit 8 */
 #define UART_CR1_UARTD          (1 << 5)  /*!< Uart Disable */
 #define UART_CR1_M              (1 << 4)  /*!< Word Length */
-#define UART_CR1_WAKE           (1 << 3)  /*!< Wakeup Method (0=idle line, 1=address mark */
+#define UART_CR1_WAKE           (1 << 3)  /*!< Wake Meth (0=idle, 1=addr mark */
 #define UART_CR1_PCEN           (1 << 2)  /*!< Parity Control Enable */
-#define UART_CR1_PS             (1 << 1)  /*!< Parity Selection (0=even, 1=odd) */
+#define UART_CR1_PS             (1 << 1)  /*!< Parity Select (0=even, 1=odd) */
 #define UART_CR1_PIEN           (1 << 0)  /*!< Parity Interrupt Enable */
 
 #define UART_CR1_Parity_Shift   (1)
@@ -809,7 +855,7 @@ typedef struct {
 
 /* UART Control Register 2 Bit Definitions */
 #define UART_CR2_TIEN           (1 << 7)  /*!< Transmitter Interrupt Enable */
-#define UART_CR2_TCIEN          (1 << 6)  /*!< Transmission Complete Interrupt Enable */
+#define UART_CR2_TCIEN          (1 << 6)  /*!< Transmission Complete Int En */
 #define UART_CR2_RIEN           (1 << 5)  /*!< Receiver Interrupt Enable */
 #define UART_CR2_ILIEN          (1 << 4)  /*!< IDLE Line Interrupt Enable */
 #define UART_CR2_TEN            (1 << 3)  /*!< Transmitter Enable */
@@ -840,9 +886,9 @@ typedef struct {
 #define UART_CR3_STOPBITS_1_5 (3 << UART_CR3_STOP_Shift)
 
 /* UART Control Register 4 Bit Definitions */
-#define UART_CR4_LBDIEN         (1 << 6)  /*!< LIN Break Detection Interrupt Enable */
-#define UART_CR4_LBDL           (1 << 5)  /*!< LIN Break Detection Length (0=10b 1=11b) */
-#define UART_CR4_LBDF           (1 << 4)  /*!< LIN Break Detection Flag */
+#define UART_CR4_LBDIEN         (1 << 6)  /*!< LIN BRK Detect Int Enable */
+#define UART_CR4_LBDL           (1 << 5)  /*!< LIN BRK Det. Len (0=10b 1=11b) */
+#define UART_CR4_LBDF           (1 << 4)  /*!< LIN BRK Detection Flag */
 #define UART_CR4_ADD3           (1 << 3)  /*!< UART Node Address Bit 3 */
 #define UART_CR4_ADD2           (1 << 2)  /*!< UART Node Address Bit 2 */
 #define UART_CR4_ADD1           (1 << 1)  /*!< UART Node Address Bit 1 */
@@ -864,7 +910,7 @@ typedef struct {
 #define UART_CR6_LDUM           (1 << 7)  /*!< LIN Divider Update Method */
 #define UART_CR6_LSLV           (1 << 5)  /*!< LIN Slave Enable */
 #define UART_CR6_LASE           (1 << 4)  /*!< LIN Auto-resync Enable */
-#define UART_CR6_LHDIEN         (1 << 2)  /*!< LIN Header Detection Interrupt Enable */
+#define UART_CR6_LHDIEN         (1 << 2)  /*!< LIN Header Detect Int. Enable */
 #define UART_CR6_LHDF           (1 << 1)  /*!< LIN Header Detection Flag */
 #define UART_CR6_LSF            (1 << 0)  /*!< LIN Sync Field */
 
@@ -897,15 +943,15 @@ typedef struct {
 #define TIM_CR2_TS2             (1 << 6)  /*!< Trigger Selection Bit 2 */
 #define TIM_CR2_TS1             (1 << 5)  /*!< Trigger Selection Bit 1 */
 #define TIM_CR2_TS0             (1 << 4)  /*!< Trigger Selection Bit 0 */
-#define TIM_CR2_SMS2            (1 << 2)  /*!< Clock/Trigger/Slave Mode Select Bit 2 */
-#define TIM_CR2_SMS1            (1 << 1)  /*!< Clock/Trigger/Slave Mode Select Bit 1 */
-#define TIM_CR2_SMS0            (1 << 0)  /*!< Clock/Trigger/Slave Mode Select Bit 0 */
+#define TIM_CR2_SMS2            (1 << 2)  /*!< Clock/Trig/Slv Mode Sel Bit 2 */
+#define TIM_CR2_SMS1            (1 << 1)  /*!< Clock/Trig/Slv Mode Sel Bit 1 */
+#define TIM_CR2_SMS0            (1 << 0)  /*!< Clock/Trig/Slv Mode Sel Bit 0 */
 
 /* TIM IER Bit Definitions  */
 #define TIM_IER_TIE             (1 << 6)  /*!< Trigger Interrupt Enable */
-#define TIM_IER_CC3IE           (1 << 3)  /*!< Capt/Compare 3 Interrupt Enable */
-#define TIM_IER_CC2IE           (1 << 2)  /*!< Capt/Compare 2 Interrupt Enable */
-#define TIM_IER_CC1IE           (1 << 1)  /*!< Capt/Compare 1 Interrupt Enable */
+#define TIM_IER_CC3IE           (1 << 3)  /*!< Capt/Cmp 3 Interrupt Enable */
+#define TIM_IER_CC2IE           (1 << 2)  /*!< Capt/Cmp 2 Interrupt Enable */
+#define TIM_IER_CC1IE           (1 << 1)  /*!< Capt/Cmp 1 Interrupt Enable */
 #define TIM_IER_UIE             (1 << 0)  /*!< Update Interrupt Enable */
 
 /* TIM SR1 Bit Definitions  */
@@ -916,9 +962,9 @@ typedef struct {
 #define TIM_SR1_UIF             (1 << 0)  /*!< Update Interrupt Flag */
 
 /* TIM SR2 Bit Definitions  */
-#define TIM_SR2_CC3OF           (1 << 3)  /*!< Capt/Compare 3 Overcapture Flag */
-#define TIM_SR2_CC2OF           (1 << 2)  /*!< Capt/Compare 2 Overcapture Flag */
-#define TIM_SR2_CC1OF           (1 << 1)  /*!< Capt/Compare 1 Overcapture Flag */
+#define TIM_SR2_CC3OF           (1 << 3)  /*!< Capt/Cmp 3 Overcapture Flag */
+#define TIM_SR2_CC2OF           (1 << 2)  /*!< Capt/Cmp 2 Overcapture Flag */
+#define TIM_SR2_CC1OF           (1 << 1)  /*!< Capt/Cmp 1 Overcapture Flag */
 
 /* TIM EGR Bit Definitions  */
 #define TIM_EGR_TG              (1 << 6)  /*!< Trigger Generation */
@@ -928,12 +974,12 @@ typedef struct {
 #define TIM_EGR_UG              (1 << 0)  /*!< Update Generation */
 
 /* TIM CCMR1 Bit Definitions */
-#define TIM_CCMR1_OC1M2         (1 << 6)  /*!< Output Compare 1 Mode Bit 2 */
-#define TIM_CCMR1_OC1M1         (1 << 5)  /*!< Output Compare 1 Mode Bit 1 */
-#define TIM_CCMR1_OC1M0         (1 << 4)  /*!< Output Compare 1 Mode Bit 0 */
-#define TIM_CCMR1_OC1PE         (1 << 3)  /*!< Output Compare 1 Preload Enable */
-#define TIM_CCMR1_CC1S1         (1 << 1)  /*!< Output Compare 1 Selection Bit 1 */
-#define TIM_CCMR1_CC1S0         (1 << 0)  /*!< Output Compare 1 Selection Bit 0 */
+#define TIM_CCMR1_OC1M2         (1 << 6)  /*!< Output Cmp 1 Mode Bit 2 */
+#define TIM_CCMR1_OC1M1         (1 << 5)  /*!< Output Cmp 1 Mode Bit 1 */
+#define TIM_CCMR1_OC1M0         (1 << 4)  /*!< Output Cmp 1 Mode Bit 0 */
+#define TIM_CCMR1_OC1PE         (1 << 3)  /*!< Output Cmp 1 Preload Enable */
+#define TIM_CCMR1_CC1S1         (1 << 1)  /*!< Output Cmp 1 Selection Bit 1 */
+#define TIM_CCMR1_CC1S0         (1 << 0)  /*!< Output Cmp 1 Selection Bit 0 */
 
 #define TIM_CCMR1_OC1M_Shift    (4)
 #define TIM_CCMR1_OC1M_Mask     (0x07 << 4)
@@ -946,11 +992,11 @@ typedef struct {
 #define TIM_CCMR1_IC1F1         (1 << 5)  /*!< Input Capture 1 Filter Bit 1 */
 #define TIM_CCMR1_IC1F0         (1 << 4)  /*!< Input Capture 1 Filter Bit 0 */
 
-#define TIM_CCMR1_IC1PSC1       (1 << 3)  /*!< Input Capture 1 Prescaler Bit 1 */
-#define TIM_CCMR1_IC1PSC0       (1 << 2)  /*!< Input Capture 1 Prescaler Bit 0 */
+#define TIM_CCMR1_IC1PSC1       (1 << 3)  /*!< Input Capt 1 Prescaler Bit 1 */
+#define TIM_CCMR1_IC1PSC0       (1 << 2)  /*!< Input Capt 1 Prescaler Bit 0 */
 
-#define TIM_CCMR1_CC1S1         (1 << 1)  /*!< Capture / Compare 1 Selection Bit 1 */
-#define TIM_CCMR1_CC1S0         (1 << 0)  /*!< Capture / Compare 1 Selection Bit 0 */
+#define TIM_CCMR1_CC1S1         (1 << 1)  /*!< Capt / Cmp 1 Selection Bit 1 */
+#define TIM_CCMR1_CC1S0         (1 << 0)  /*!< Capt / Cmp 1 Selection Bit 0 */
 
 #define TIM_CCMR1_IC1F_Shift    (4)
 #define TIM_CCMR1_IC1F_Mask     (0x0f << 4)
@@ -965,9 +1011,9 @@ typedef struct {
 #define TIM_CCMR2_OC1M2         (1 << 6)  /*!< Output Compare 1 Mode Bit 2 */
 #define TIM_CCMR2_OC1M1         (1 << 5)  /*!< Output Compare 1 Mode Bit 1 */
 #define TIM_CCMR2_OC1M0         (1 << 4)  /*!< Output Compare 1 Mode Bit 0 */
-#define TIM_CCMR2_OC1PE         (1 << 3)  /*!< Output Compare 1 Preload Enable */
-#define TIM_CCMR2_CC1S1         (1 << 1)  /*!< Output Compare 1 Selection Bit 1 */
-#define TIM_CCMR2_CC1S0         (1 << 0)  /*!< Output Compare 1 Selection Bit 0 */
+#define TIM_CCMR2_OC1PE         (1 << 3)  /*!< Output Compare 1 Preload Ena. */
+#define TIM_CCMR2_CC1S1         (1 << 1)  /*!< Output Compare 1 Select Bit 1 */
+#define TIM_CCMR2_CC1S0         (1 << 0)  /*!< Output Compare 1 Select Bit 0 */
 
 #define TIM_CCMR2_OC1M_Shift    (4)
 #define TIM_CCMR2_OC1M_Mask     (0x07 << 4)
@@ -980,11 +1026,11 @@ typedef struct {
 #define TIM_CCMR2_IC1F1         (1 << 5)  /*!< Input Capture 1 Filter Bit 1 */
 #define TIM_CCMR2_IC1F0         (1 << 4)  /*!< Input Capture 1 Filter Bit 0 */
 
-#define TIM_CCMR2_IC1PSC1       (1 << 3)  /*!< Input Capture 1 Prescaler Bit 1 */
-#define TIM_CCMR2_IC1PSC0       (1 << 2)  /*!< Input Capture 1 Prescaler Bit 0 */
+#define TIM_CCMR2_IC1PSC1       (1 << 3)  /*!< Input Capt 1 Prescaler Bit 1 */
+#define TIM_CCMR2_IC1PSC0       (1 << 2)  /*!< Input Capt 1 Prescaler Bit 0 */
 
-#define TIM_CCMR2_CC1S1         (1 << 1)  /*!< Capture / Compare 1 Selection Bit 1 */
-#define TIM_CCMR2_CC1S0         (1 << 0)  /*!< Capture / Compare 1 Selection Bit 0 */
+#define TIM_CCMR2_CC1S1         (1 << 1)  /*!< Capt / Cmp 1 Selection Bit 1 */
+#define TIM_CCMR2_CC1S0         (1 << 0)  /*!< Capt / Cmp 1 Selection Bit 0 */
 
 #define TIM_CCMR2_IC1F_Shift    (4)
 #define TIM_CCMR2_IC1F_Mask     (0x0f << 4)
@@ -999,9 +1045,9 @@ typedef struct {
 #define TIM_CCMR3_OC1M2         (1 << 6)  /*!< Output Compare 1 Mode Bit 2 */
 #define TIM_CCMR3_OC1M1         (1 << 5)  /*!< Output Compare 1 Mode Bit 1 */
 #define TIM_CCMR3_OC1M0         (1 << 4)  /*!< Output Compare 1 Mode Bit 0 */
-#define TIM_CCMR3_OC1PE         (1 << 3)  /*!< Output Compare 1 Preload Enable */
-#define TIM_CCMR3_CC1S1         (1 << 1)  /*!< Output Compare 1 Selection Bit 1 */
-#define TIM_CCMR3_CC1S0         (1 << 0)  /*!< Output Compare 1 Selection Bit 0 */
+#define TIM_CCMR3_OC1PE         (1 << 3)  /*!< Output Cmp 1 Preload Enable */
+#define TIM_CCMR3_CC1S1         (1 << 1)  /*!< Output Cmp 1 Selection Bit 1 */
+#define TIM_CCMR3_CC1S0         (1 << 0)  /*!< Output Cmp 1 Selection Bit 0 */
 
 #define TIM_CCMR3_OC1M_Shift    (4)
 #define TIM_CCMR3_OC1M_Mask     (0x07 << 4)
@@ -1014,11 +1060,11 @@ typedef struct {
 #define TIM_CCMR3_IC1F1         (1 << 5)  /*!< Input Capture 1 Filter Bit 1 */
 #define TIM_CCMR3_IC1F0         (1 << 4)  /*!< Input Capture 1 Filter Bit 0 */
 
-#define TIM_CCMR3_IC1PSC1       (1 << 3)  /*!< Input Capture 1 Prescaler Bit 1 */
-#define TIM_CCMR3_IC1PSC0       (1 << 2)  /*!< Input Capture 1 Prescaler Bit 0 */
+#define TIM_CCMR3_IC1PSC1       (1 << 3)  /*!< Input Capt 1 Prescaler Bit 1 */
+#define TIM_CCMR3_IC1PSC0       (1 << 2)  /*!< Input Capt 1 Prescaler Bit 0 */
 
-#define TIM_CCMR3_CC1S1         (1 << 1)  /*!< Capture / Compare 1 Selection Bit 1 */
-#define TIM_CCMR3_CC1S0         (1 << 0)  /*!< Capture / Compare 1 Selection Bit 0 */
+#define TIM_CCMR3_CC1S1         (1 << 1)  /*!< Capt / Cmp 1 Selection Bit 1 */
+#define TIM_CCMR3_CC1S0         (1 << 0)  /*!< Capt / Cmp 1 Selection Bit 0 */
 
 #define TIM_CCMR3_IC1F_Shift    (4)
 #define TIM_CCMR3_IC1F_Mask     (0x0f << 4)
@@ -1066,7 +1112,7 @@ typedef struct {
 #define ADC_CR2_EXTTRIG        (1 << 6)  /*!< External Trigger Enable */
 #define ADC_CR2_EXTSEL1        (1 << 5)  /*!< External Event Select Bit 1 */
 #define ADC_CR2_EXTSEL0        (1 << 4)  /*!< External Event Select Bit 0 */
-#define ADC_CR2_ALIGN          (1 << 3)  /*!< Data Alignment (0=Left, 1=Right) */
+#define ADC_CR2_ALIGN          (1 << 3)  /*!< Data Align (0=Left, 1=Right) */
 #define ADC_CR2_SCAN           (1 << 1)  /*!< Scan Mode Enable */
 
 /* ADC CR3 Bit Definitions */
@@ -1118,6 +1164,19 @@ typedef struct {
 #define IWDG_PR_DIV64          (0x04)
 #define IWDG_PR_DIV128         (0x05)
 #define IWDG_PR_DIV256         (0x06)
+
+/**
+  * @}
+  */
+
+/** @defgroup WWDG_Register_Bit_Definitions WWDG Register Bit Definitions
+  * @{
+  */
+
+/* WWDG Control Register Definitions */
+#define WWDG_CR_WDGA           (1 << 7)   /*!< WWDG Activation Bit */
+#define WWDG_CR_T_Shift        (0)        /*!< Shift for 7 bit counter value */
+#define WWDG_KR_T_Mask         (0x7f)     /*!< Mask for 7 bit counter value */
 
 /**
   * @}

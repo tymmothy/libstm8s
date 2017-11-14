@@ -95,7 +95,8 @@ static inline int adc_analog_watchdog_irq_is_enabled(ADC_TypeDef *adc)
 
 static inline void adc_set_channel(ADC_TypeDef *adc, uint8_t channel)
 {
-    adc->CSR = (adc->CSR & ~ADC_CSR_CHANNEL_Mask) | (channel & ADC_CSR_CHANNEL_Mask);
+    adc->CSR = (adc->CSR & ~ADC_CSR_CHANNEL_Mask)
+             | (channel & ADC_CSR_CHANNEL_Mask);
 }
 
 static inline uint8_t adc_get_channel(ADC_TypeDef *adc)
@@ -105,7 +106,8 @@ static inline uint8_t adc_get_channel(ADC_TypeDef *adc)
 
 static inline void adc_set_prescaler(ADC_TypeDef *adc, uint8_t prescaler)
 {
-    adc->CR1 = (adc->CR1 & ~ADC_CR1_SPSEL_Mask) | (prescaler & ADC_CR1_SPSEL_Mask);
+    adc->CR1 = (adc->CR1 & ~ADC_CR1_SPSEL_Mask)
+             | (prescaler & ADC_CR1_SPSEL_Mask);
 }
 
 static inline uint8_t adc_get_prescaler(ADC_TypeDef *adc)
