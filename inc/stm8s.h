@@ -24,7 +24,7 @@
  * THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
  * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
- * TIMOTHY TWILLMAN OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * TYMM ZERR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
@@ -336,6 +336,14 @@ typedef struct {
     __IO uint8_t TDRH;          /*!< 0x06: Schmitt Trigger Disable Reg. High */
     __IO uint8_t TDRL;          /*!< 0x07: Schmitt Trigger Disable Reg Low   */
 } ADC2_TypeDef;
+
+/** @brief IWDG Register Layout
+  */
+typedef struct {
+    __IO uint8_t KR;            /*!< 0x00: Key Register                      */
+    __IO uint8_t PR;            /*!< 0x01: Prescaler Register                */
+    __IO uint8_t RR;            /*!< 0x02: Reload Register                   */
+} IWDG_TypeDef;
 
 /** @brief CPU Register Layout
   */
@@ -1089,12 +1097,38 @@ typedef struct {
   * @}
   */
 
-/** @defgroup CFG_Register_Bit_Definitions Configuration Register Bit Definitions
+/** @defgroup IWDG_Register_Bit_Definitions IWDG Register Bit Definitions
+  * @{
+  */
+
+/* IWDG Key Register Definitions */
+#define IWDG_KR_KEY_ENABLE     (0xcc)     /*!< Key to enable the IWDG         */
+#define IWDG_KR_KEY_REFRESH    (0xaa)     /*!< Key to refresh the IWDG        */
+#define IWDG_KR_KEY_ACCESS     (0x55)     /*!< Key to Enable access to PR/RLR */
+
+
+/* IWDG Prescaler Register Bit Definitions */
+#define IWDG_PR_Shift          (0)
+#define IWDG_PR_MASK           (0x07)
+
+#define IWDG_PR_DIV4           (0x00)
+#define IWDG_PR_DIV8           (0x01)
+#define IWDG_PR_DIV16          (0x02)
+#define IWDG_PR_DIV32          (0x03)
+#define IWDG_PR_DIV64          (0x04)
+#define IWDG_PR_DIV128         (0x05)
+#define IWDG_PR_DIV256         (0x06)
+
+/**
+  * @}
+  */
+
+/** @defgroup CFG_Register_Bit_Definitions Config Register Bit Definitions
   * @{
   */
 
 /* CFG Register Bit Definitions */
-#define CFG_GCR_AL              (1 << 0)  /*!< Activation Lvl (0=norm,1=irq-only) */
+#define CFG_GCR_AL              (1 << 0)  /*!< Activn Lvl (0=norm,1=irq-only) */
 #define CFG_GCR_SWD             (1 << 1)  /*!< SWIM Disable */
 
 /**
@@ -1106,10 +1140,10 @@ typedef struct {
   */
 
 #if defined(_SDCC_)
-# define __rim()                {__asm__("rim\n");}  /*!< Enable interrupts */
+# define __rim()                {__asm__("rim\n");}  /*!< Enable interrupts  */
 # define __sim()                {__asm__("sim\n");}  /*!< Disable interrupts */
-# define __nop()                {__asm__("nop\n");}  /*!< No Operation */
-# define __trap()               {__asm__("trap\n");} /*!< Trap Instruction */
+# define __nop()                {__asm__("nop\n");}  /*!< No Operation       */
+# define __trap()               {__asm__("trap\n");} /*!< Trap Instruction   */
 # define __wfi()                {__asm__("wfi\n");}  /*!< Wait for Interrupt */
 # define __halt()               {__asm__("halt\n");} /*!< Halt */
 #endif
