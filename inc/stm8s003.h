@@ -2,7 +2,7 @@
  * @file:    stm8s003.h
  * @purpose: Header File for STM8S003/STM8S103 Microcontrollers.
  * @version: V1.0
- * @author:  Tymm Twillman
+ * @author:  Tymm Zerr
  * @date:    1. November 2014
  *
  * Generally this should be included indirectly via stm8s.h
@@ -12,7 +12,7 @@
  * @section License License
  * Licensed under a Simplified BSD License:
  *
- * Copyright (c) 2012, Timothy Twillman
+ * Copyright (c) 2014-2017, Tymm Zerr
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,7 +28,7 @@
  * THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
  * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
- * TIMOTHY TWILLMAN OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * TYMM ZERR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
@@ -38,7 +38,7 @@
  *
  * The views and conclusions contained in the software and documentation are
  * those of the authors and should not be interpreted as representing official
- * policies, either expressed or implied, of Timothy Twillman.
+ * policies, either expressed or implied, of Tymm Zerr.
  *****************************************************************************/
 
 #ifndef STM8S003_H_
